@@ -1,0 +1,106 @@
+.sectionPage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionEdit {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    padding: 12px 30px 0px 0px;
+}
+
+.sectionEdit button {
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: var(--soft-primary-color);
+    width: 150px;
+    padding: 6px 14px;
+    margin-left: 14px;
+    border: 0px;
+    border-radius: 12px;
+    transition: .15s;
+    outline-style: none;
+}
+
+.sectionEdit button.on {
+    background-color: var(--primary-color);
+    color: var(--soft-primary-color);
+}
+
+.sectionLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sectionLeft div {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.sectionEdit h2 {
+    font-size: 36px;
+    margin: 0 0 12px 0;
+    color: var(--primary-color);
+}
+
+.sectionEdit h2 .thin {
+    font-weight: normal;
+}
+
+.sectionRight {
+    flex-grow: 10;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    margin-left: 60px;
+}
+
+.sectionRight div {
+    text-align: left;
+}
+
+.sectionRight label {
+    padding: 0px 16px 0px 8px;
+}
+
+.sectionRight select, .sectionRight input {
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    transition: .15s;
+    outline-style: none;
+    margin-top: 10px;
+}
+
+.sectionRight select {
+    color: var(--primary-color);
+    background-color: var(--soft-primary-color);
+    border: 0px;
+}
+
+.sectionRight input {
+    color: var(--primary-color);
+    border: 1px solid var(--soft-primary-color);
+    width: 100%;
+}
+
+.sectionRight input::placeholder {
+    font-weight: normal;
+    color: #cecece;
+}
+
+
+
+

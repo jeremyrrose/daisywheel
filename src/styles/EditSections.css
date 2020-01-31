@@ -1,0 +1,68 @@
+.editSections {
+    width: 100%;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.editSections button {
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: var(--soft-primary-color);
+    width: 300px;
+    border: 0px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    transition: .15s;
+    outline-style: none;
+    margin-top: 20px;
+}
+
+.editSections button.addSection {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.editSections a:hover button {
+    color: var(--highlight-color);
+}
+
+.editSections form {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+}
+
+.editSections form div {
+    position: relative;
+    align-self: stretch;
+    margin: 30px 30px 0px 0px;
+}
+
+.editSections form label {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    padding: 0px 4px;
+    position: absolute;
+    top: -14px;
+    left: 12px;
+}
+
+.editSections input {
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+    border: 1px solid var(--soft-primary-color);
+}
+
+.editSections form button {
+    align-self: flex-end;
+}
+
+.editSections form button:hover {
+    color: var(--highlight-color);
+}

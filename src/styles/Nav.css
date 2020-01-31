@@ -1,0 +1,44 @@
+.mainContainer {
+    display: flex;
+}
+
+.leftNav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.leftNav a {
+    margin: 0px 0px 20px 0px;
+    text-decoration: none;
+    display: flex;
+}
+
+.leftNav a img {
+    margin-left: 12px;
+    opacity: 0;
+    transition: .3s;
+}
+
+.leftNav button {
+    cursor: pointer;
+    min-width: 240px;
+    padding: 6px 0px;
+    border: 0px;
+    border-radius: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--background-color);
+    background-color: var(--secondary-color);
+    transition: .3s;
+    outline-style: none;
+}
+
+.leftNav .selectedLink button {
+    color: var(--highlight-color);
+}
+
+.leftNav .selectedLink img {
+    opacity: 1;
+}
