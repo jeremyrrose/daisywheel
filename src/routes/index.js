@@ -17,7 +17,7 @@ const Routes = ({ magazine, refresh }) => (
                 <Route
                 exact
                 path="/"
-                render={() => (<div>WUT NOW</div>)}
+                render={() => (<></>)}
                 />
                 <Route
                 exact

@@ -29,7 +29,7 @@ export const updateMagazine = async (magData) => {
 // single-article methods
 export const getArticle = async (id) => {
   try {
-    const resp = await Api.get(`/articles/${id}`)
+    const resp = await Api.get(`/edit/articles/${id}`)
     console.log(resp)
     return resp.data
   } catch (error) {

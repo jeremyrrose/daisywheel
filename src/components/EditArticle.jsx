@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleForm from './shared/ArticleForm.jsx';
-import { updateArticle } from '../services/ApiMethods.js'
+import { updateArticle, getArticle } from '../services/ApiMethods.js'
 
 class EditArticle extends React.Component {
     constructor(props) {
@@ -10,16 +10,11 @@ class EditArticle extends React.Component {
     }
 
     componentDidMount = async () => {
-        this.getArticle(this.props.match.params.id);
+        this.getArticleToEdit(this.props.match.params.id);
       }
     
-    getArticle = async (id) => {
-        fetch(`http://localhost:3000/edit/articles/${id}`)
-        .then(response => response.json())
-        .then(response => {
-            console.log(response);
-            return response;
-        })
+    getArticleToEdit = async (id) => {
+        getArticle(id)
         .then(({ 
             article: {
                 id,

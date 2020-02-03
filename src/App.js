@@ -9,7 +9,12 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      magazine: {},
+      magazine: {
+        color_1: "#3A606E",
+        color_2: "#607B7D",
+        color_3: "#878787",
+        color_4: "#FEF2AC"
+      },
       refresh: true
     }
   }
