@@ -28,6 +28,7 @@ class Articles extends React.Component {
                 key={index}
                 isTop={this.props.top_story === article.id}
                 featured={this.props.feature_ids.includes(article.id)}
+                sectionId={article.section_id}
                 articleId={article.id}
                 image_url={article.image_url}
                 title={article.title}
@@ -37,6 +38,7 @@ class Articles extends React.Component {
                 published={article.published}
                 topToggle={this.props.topToggle}
                 featureToggle={this.props.featureToggle}
+                refresh={this.props.refresh}
                 />)
         });
     }

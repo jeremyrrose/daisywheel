@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { deleteArticle } from '../../services/ApiMethods.js'
 import checkMark from '../../images/checkMark.svg'
 import '../../styles/ArticleCard.css'
 
-const ArticleCard = ({image_url, title, dek, author, date, articleId, published, isTop, featured, topToggle, featureToggle}) => {
+const ArticleCard = ({image_url, title, dek, author, date, sectionId, articleId, published, isTop, featured, topToggle, featureToggle, refresh }) => {
+
+    const deleteHandler = () => {
+        deleteArticle(articleId)
+        .then(refresh());
+        return true;
+    }
+
     const toggleButtons = (<>
-        <button className={`top${isTop ? " on" : ""}`} onClick={() => topToggle(articleId)}>Top Story <img src={checkMark} /></button>
-        <button className={`featured${featured ? " on" : ""}`} onClick={() => featureToggle(articleId)}>Featured <img src={checkMark} /></button>
+        {sectionId ? (<button className={`top${isTop ? " on" : ""}`} onClick={() => topToggle(articleId)}>Top Story <img src={checkMark} /></button>) : null}
+        <button className={`featured${featured ? " on" : ""}`} onClick={() => featureToggle(articleId)}>{ sectionId ? `Featured` : `Menu Item` } <img src={checkMark} /></button>
         </>)
 
     return (
@@ -23,6 +31,7 @@ const ArticleCard = ({image_url, title, dek, author, date, articleId, published,
                 <p>{published ? 'Published' : 'Draft' }</p>
                 { published && toggleButtons }
                 <Link to={`/edit/articles/${articleId}`}><button>Edit</button></Link>
+                <button style={{ width: "50px" }} onClick={() => deleteHandler()}> X </button>
             </div>
         </div>
     )

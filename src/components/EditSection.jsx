@@ -88,6 +88,7 @@ class EditSection extends React.Component {
                     feature_ids={this.state.section && this.state.feature_ids}
                     topToggle={this.topToggle}
                     featureToggle={this.featureToggle}
+                    refresh={this.props.refresh}
                 />
             </div>
 

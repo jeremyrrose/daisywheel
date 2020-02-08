@@ -154,6 +154,10 @@
     overflow-x: hidden;
 }
 
+.articleForm #content div {
+    margin-bottom: 18px;
+}
+
 .articleForm .submitRow {
     display: flex;
     justify-content: flex-end;

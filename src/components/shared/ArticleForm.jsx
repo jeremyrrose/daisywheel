@@ -81,9 +81,9 @@ const ArticleForm = ({
                 {header}
                 <div>
                     <label for="section_id">Section</label>
-                    <select name="section_id" value={section_id} onChange={(e) => onChange(e)} >
+                    <select name="section_id" value={section_id || "0"} onChange={(e) => onChange(e)} >
                         {sectionSelect}
-                        <option value={0}>:: Static Page</option>
+                        <option value="0">:: Static Page</option>
                     </select>
                 </div>
             </div>

@@ -21,7 +21,7 @@ class NewArticle extends React.Component {
     }
 
 
-    buildArticle = (e) => {
+    buildArticle = async (e) => {
         e.preventDefault();
         // const articleData = {
         //     title: this.state.title,
@@ -39,13 +39,11 @@ class NewArticle extends React.Component {
         console.log(stateInfo);
         let articleData = new FormData();
         for(var name in stateInfo) {
-            if (name == 'section_id' || name == 'author_id' && stateInfo[name] == '0') {
-                stateInfo[name] = null;
-            }
             stateInfo[name] && articleData.append(name, stateInfo[name]);
         }
-        createArticle(articleData)
-        .then(this.props.history.push('/edit/articles'));
+        await createArticle(articleData)
+        .then(this.props.refresh())
+        .then(this.props.history.push(this.state.section_id ? `/edit/sections/${this.state.section_id}` : '/edit/articles'));
     }
 
     toggler = (e, componentName) => {

@@ -62,12 +62,22 @@ export const updateArticle = async (id, articleData) => {
     const response = await Api.put(`/edit/articles/${id}`, articleData);
     return response
   } catch (error) {
-      console.error(error)
+      console.error(error);
+  }
+}
+
+export const deleteArticle = async (id) => {
+  try {
+    const response = await Api.delete(`/edit/articles/${id}`);
+    return response;
+  } catch (error) {
+    console.error(error);
   }
 }
 
 // article list methods
 export const getArticlesToEdit = async (section) => {
+
   console.log(`section: ${section}`);
   const url = section ? `/edit/sections/${section}/articles` : `/edit/articles`
   try {

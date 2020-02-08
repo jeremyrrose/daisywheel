@@ -100,7 +100,8 @@ class EditArticle extends React.Component {
             stateInfo[name] && articleData.append(name, stateInfo[name]);
         }
         updateArticle(this.props.match.params.id, articleData)
-        // .then(this.props.history.push('/edit/articles'));
+        .then(this.props.refresh())
+        .then(this.props.history.push(this.state.section_id ? `/edit/sections/${this.state.section_id}` : '/edit/articles'));
     }
 
     render () {

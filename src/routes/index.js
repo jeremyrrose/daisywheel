@@ -22,12 +22,12 @@ const Routes = ({ magazine, refresh }) => (
                 <Route
                 exact
                 path="/new/article/"
-                render={props => (<NewArticle {...props} magazine={magazine} />)}
+                render={props => (<NewArticle {...props} magazine={magazine} refresh={refresh} />)}
                 />
                 <Route
                 exact
                 path="/edit/articles/:id"
-                render={props => (<EditArticle {...props} magazine={magazine} />)}
+                render={props => (<EditArticle {...props} magazine={magazine} refresh={refresh} />)}
                 />
                 <Route
                 exact
@@ -42,7 +42,7 @@ const Routes = ({ magazine, refresh }) => (
                 <Route
                 exact
                 path="/edit/sections/:id"
-                render={props => (<EditSection {...props} magazine={magazine} />)}
+                render={props => (<EditSection {...props} magazine={magazine} refresh={refresh} />)}
                 />
                 <Route
                 exact

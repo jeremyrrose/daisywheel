@@ -40,6 +40,7 @@ class App extends React.Component {
     console.log('whyyyyyyyy');
     this.getInfo();
     this.forceUpdate();
+    return true;
   }
 
   addColors = () => {

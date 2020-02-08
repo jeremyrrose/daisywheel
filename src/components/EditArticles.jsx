@@ -7,6 +7,8 @@ class EditArticles extends React.Component {
         super(props);
         this.state = {
             articles: [],
+            article_count: 0,
+            article_page: 1,
             features: [],
             feature_ids: [],
             top_story: null,
@@ -23,7 +25,8 @@ class EditArticles extends React.Component {
         const features = await getFeatures();
         const feature_ids = features.map(feature => feature.article_id)
         this.setState({
-            articles: articles,
+            articles: articles.articles,
+            article_count: articles.count,
             features: features,
             feature_ids: feature_ids,
             top_story: this.props.magazine.top_story
@@ -55,7 +58,24 @@ class EditArticles extends React.Component {
         this.setArticles();
     }
 
+    offset = () => {
+        const offsetNums = [];
+        const numTabs = Math.ceil(this.state.article_count / 20);
+        console.log(numTabs)
+        for ( let i = 1; i < numTabs; i++) {
+            offsetNums.push(i);
+        }
+        const ListNav = ({num}) => {
+            return (
+                <div onClick={() => this.setArticles(num * 20)}> {num} </div>
+            )
+        }
+        // const offset = offsetNums.map(num => (<span onclick={this.setArticles(num*20)}> {num} </span>));
+        return offsetNums.map(num => <ListNav num={num} /> );
+    }
+
     render() {
+
         return (
         <div className="sectionPage">
             <div className="sectionEdit">
@@ -80,7 +100,11 @@ class EditArticles extends React.Component {
                 feature_ids={this.state.feature_ids}
                 topToggle={this.topToggle}
                 featureToggle={this.featureToggle}
+                refresh={this.props.refresh}
             />
+            {/* <div class="offset">
+                {this.offset()}
+            </div> */}
         </div>
         )
     }
