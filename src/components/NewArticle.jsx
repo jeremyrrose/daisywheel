@@ -39,6 +39,9 @@ class NewArticle extends React.Component {
         console.log(stateInfo);
         let articleData = new FormData();
         for(var name in stateInfo) {
+            if (name == 'section_id' || name == 'author_id' && stateInfo[name] == '0') {
+                stateInfo[name] = null;
+            }
             stateInfo[name] && articleData.append(name, stateInfo[name]);
         }
         createArticle(articleData)
@@ -94,6 +97,7 @@ class NewArticle extends React.Component {
                 section_id={section_id}
                 sections={this.props.magazine.sections}
                 author_id={author_id}
+                authors={this.props.magazine.authors}
                 onChange={this.changeHandler}
                 onDrop={this.onDrop}
                 toggle={this.toggler}

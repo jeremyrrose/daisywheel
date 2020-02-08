@@ -17,6 +17,7 @@ const ArticleForm = ({
     section_id,
     sections,
     author_id,
+    authors,
     onChange,
     toggle,
     onSubmit,
@@ -33,6 +34,7 @@ const ArticleForm = ({
 
     const header = id ? <h2>Edit Article</h2> : <h2>New Article</h2>
     const sectionSelect = sections && sections.map((section, index) => <option key={index} value={section.id}>{section.title}</option>)
+    const authorSelect = authors && authors.map((author, index) => <option key={index} value={author.id}>{author.name}</option>)
     const styler = (e) => {
         e.preventDefault();
         console.log(e.nativeEvent.target.name)
@@ -97,8 +99,8 @@ const ArticleForm = ({
                 <div>
                     <label for="author_id">Author</label>
                     <select name="author_id" value={author_id} onChange={(e) => onChange(e)}>
-                        <option value="0">Staff</option>
-                        <option value="1">Jeremy Rose</option>
+                        <option value="0">:: Staff</option>
+                        {authorSelect}
                     </select>
                 </div>
                 <input name="updated_at" type="text" value={updated_at} onChange={(e) => onChange(e)} />

@@ -5,11 +5,12 @@ import Axios from 'axios'
 // configuration methods
 export const getMagazine = async () => {
   try {
-    const resp = await Api.get(`/magazines/1`);
+    const resp = await Api.get(`edit/magazines/1`);
     console.log(resp.data)
     let magazine = resp.data.magazine;
     magazine.sections = resp.data.sections;
     magazine.pages = resp.data.pages;
+    magazine.authors = resp.data.authors;
     return magazine;
   } catch(error) {
     console.error(error)
@@ -58,15 +59,6 @@ export const createArticle = async (articleData) => {
 
 export const updateArticle = async (id, articleData) => {
   try {
-    if (articleData.section_id == 0) { 
-      delete articleData.section_id; 
-      articleData.static_page = true 
-    } else {
-      articleData.static_page = false
-    }
-    if (articleData.author_id == 0) { 
-      delete articleData.author_id;
-    }
     const response = await Api.put(`/edit/articles/${id}`, articleData);
     return response
   } catch (error) {
