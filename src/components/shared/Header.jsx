@@ -16,7 +16,7 @@ class Header extends React.Component {
         return (
             <header>
                 <h1>{this.props.magazine.title}</h1>
-                <h5>powered by daisywheel v. 0.1</h5>
+                <h5>{this.props.magazine.description}</h5>
             </header>
         )
     }

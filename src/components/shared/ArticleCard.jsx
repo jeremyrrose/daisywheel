@@ -4,11 +4,11 @@ import { deleteArticle } from '../../services/ApiMethods.js'
 import checkMark from '../../images/checkMark.svg'
 import '../../styles/ArticleCard.css'
 
-const ArticleCard = ({image_url, title, dek, author, date, sectionId, articleId, published, isTop, featured, topToggle, featureToggle, refresh }) => {
+const ArticleCard = ({image_url, title, dek, author, date, sectionId, articleId, published, isTop, featured, topToggle, featureToggle, refresh, modalToggler }) => {
 
     const deleteHandler = () => {
         deleteArticle(articleId)
-        .then(refresh());
+        .then(modalToggler());
         return true;
     }
 
@@ -31,7 +31,7 @@ const ArticleCard = ({image_url, title, dek, author, date, sectionId, articleId,
                 <p>{published ? 'Published' : 'Draft' }</p>
                 { published && toggleButtons }
                 <Link to={`/edit/articles/${articleId}`}><button>Edit</button></Link>
-                <button style={{ width: "50px" }} onClick={() => deleteHandler()}> X </button>
+                <button style={{ width: "50px" }} onClick={(e) => modalToggler(e, deleteHandler, "delete this article") }> X </button>
             </div>
         </div>
     )

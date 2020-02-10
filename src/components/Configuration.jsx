@@ -1,5 +1,6 @@
 import React from 'react'
-import { updateMagazine } from '../services/ApiMethods.js'
+import { updateMagazine } from '../services/ApiMethods.js';
+import Modal from './shared/Modal.jsx';
 import '../styles/Configuration.css'
 
 class Configuration extends React.Component {
@@ -11,7 +12,10 @@ class Configuration extends React.Component {
             color_3: this.props.magazine.color_3,
             color_4: this.props.magazine.color_4,
             title: this.props.magazine.title,
-            description: this.props.magazine.description
+            description: this.props.magazine.description,
+            confirmModal: false,
+            modalMessage: '',
+            modalCallback: null
         }
     }
 
@@ -19,6 +23,15 @@ class Configuration extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+
+    modalToggler = (e, callback, modalMessage) => {
+        e.preventDefault();
+        this.setState({
+            confirmModal: !this.state.confirmModal,
+            modalMessage: modalMessage,
+            modalCallback: callback
+        });
     }
 
     changeColors = (e) => {
@@ -34,12 +47,12 @@ class Configuration extends React.Component {
     }
 
     changeInfo = (e) => {
-        e.preventDefault();
         const infoObject = { ...this.props.magazine };
         infoObject.title = this.state.title;
         infoObject.description = this.state.description;
-        updateMagazine(infoObject).
-        then(this.props.refresh(infoObject));
+        updateMagazine(infoObject)
+        .then(this.props.refresh(infoObject))
+        .then(this.modalToggler(e, null, ''));
     }
 
     addColors = () => {
@@ -63,9 +76,10 @@ class Configuration extends React.Component {
     render () {
         return (
             <div className="configuration">
+            { this.state.confirmModal && <Modal toggle={this.modalToggler} action={this.state.modalMessage} callback={this.state.modalCallback} /> }
                 <h2>Publication info</h2>
                 <div className="configInfo">
-                    <form className="configInfo" onSubmit={ (e) => this.changeInfo(e) }>
+                    <form className="configInfo" onSubmit={ (e) => this.modalToggler(e, this.changeInfo, "overwrite the publication title") }>
                         <div>
                             <label for="title">Publication title</label>
                             <input name="title" type="text" value={this.state.title} onChange={(e) => this.changeHandler(e)} />
@@ -74,7 +88,7 @@ class Configuration extends React.Component {
                             <label for="description">Description</label>
                             <input name="description" type="text" value={this.state.description} onChange={(e) => this.changeHandler(e)} />
                         </div>
-                        <button type="submit">Save publication info</button>
+                        <button type="submit" className={ this.state.title != this.props.magazine.title || this.state.description != this.props.magazine.description ? 'active' : 'dim' }>Save publication info</button>
                     </form>
                 </div>
                 <h2>Publication colors</h2>

@@ -39,6 +39,7 @@ class Articles extends React.Component {
                 topToggle={this.props.topToggle}
                 featureToggle={this.props.featureToggle}
                 refresh={this.props.refresh}
+                modalToggler={this.props.modalToggler}
                 />)
         });
     }

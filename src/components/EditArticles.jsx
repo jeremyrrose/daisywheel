@@ -1,6 +1,7 @@
-import React from 'react'
-import { getArticlesToEdit, getFeatures, addFeatured, removeFeatured, updateMagazine } from '../services/ApiMethods.js'
-import Articles from './shared/Articles.jsx'
+import React from 'react';
+import { getArticlesToEdit, getFeatures, addFeatured, removeFeatured, updateMagazine } from '../services/ApiMethods.js';
+import Articles from './shared/Articles.jsx';
+import Modal from './shared/Modal.jsx';
 
 class EditArticles extends React.Component {
     constructor(props) {
@@ -12,7 +13,10 @@ class EditArticles extends React.Component {
             features: [],
             feature_ids: [],
             top_story: null,
-            all: true
+            all: true,
+            confirmModal: false,
+            modalMessage: '',
+            modalCallback: null
         }
     }
 
@@ -74,10 +78,21 @@ class EditArticles extends React.Component {
         return offsetNums.map(num => <ListNav num={num} /> );
     }
 
+    modalToggler = (e, callback, modalMessage) => {
+        e && e.preventDefault();
+        this.state.confirmModal && this.setArticles();
+        this.setState({
+            confirmModal: !this.state.confirmModal,
+            modalMessage: modalMessage,
+            modalCallback: callback
+        });
+    }
+
     render() {
 
         return (
         <div className="sectionPage">
+            { this.state.confirmModal && <Modal toggle={this.modalToggler} action={this.state.modalMessage} callback={this.state.modalCallback} /> }
             <div className="sectionEdit">
                 <div className="sectionLeft">
                     <h2><span className="thin">Section: </span>{this.state.section ? this.state.section.title : `Front Page` }</h2>
@@ -101,6 +116,7 @@ class EditArticles extends React.Component {
                 topToggle={this.topToggle}
                 featureToggle={this.featureToggle}
                 refresh={this.props.refresh}
+                modalToggler={this.modalToggler}
             />
             {/* <div class="offset">
                 {this.offset()}

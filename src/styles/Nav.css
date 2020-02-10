@@ -42,3 +42,12 @@
 .leftNav .selectedLink img {
     opacity: 1;
 }
+
+.navText {
+    margin-top: 60px;
+    text-align: left;
+}
+
+.navText a {
+    display: inline;
+}

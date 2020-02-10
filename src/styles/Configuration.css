@@ -24,6 +24,12 @@ div.configInfo {
     width: 100%;
 }
 
+.configInfo button.dim {
+    background-color: var(--soft-primary-color);
+    pointer-events: none;
+    cursor: default;
+}
+
 .configuration label {
     color: var(--primary-color);
     position: absolute;
