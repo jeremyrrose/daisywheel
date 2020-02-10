@@ -75,7 +75,7 @@ class EditSection extends React.Component {
                                 {sectionSelect}
                             </select>
                         </div>
-                        <input type="search" placeholder={`Search within ${this.state.section ? this.state.section.title : null }`}></input>
+                        {/* <input type="search" placeholder={`Search within ${this.state.section ? this.state.section.title : null }`}></input> */}
                     </div>
                 </div>
                 <Articles 

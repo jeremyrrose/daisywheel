@@ -87,7 +87,7 @@ class EditArticles extends React.Component {
                         <button className={this.state.all || `on`} onClick={() => this.allToggle(false)}>Featured Only</button></div>
                 </div>
                 <div className="sectionRight">
-                    <input type="search" placeholder={`Search within ${this.state.section ? this.state.section.title : 'articles' }`}></input>
+                    {/* <input type="search" placeholder={`Search within ${this.state.section ? this.state.section.title : 'articles' }`}></input> */}
                 </div>
             </div>
             <Articles 
