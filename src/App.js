@@ -36,10 +36,14 @@ class App extends React.Component {
     this.addColors();
   }
 
-  forceIt = () => {
-    console.log('whyyyyyyyy');
-    this.getInfo();
-    this.forceUpdate();
+  forceIt = (stateObj) => {
+    if (stateObj) {
+      this.setState({magazine: stateObj});
+    } else {
+      console.log('whyyyyyyyy');
+      this.getInfo();
+      this.forceUpdate();
+    }
     return true;
   }
 

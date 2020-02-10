@@ -1,10 +1,56 @@
-.configuration {
-    margin-top: 16px;
+.configuration h2 {
+    color: var(--primary-color);
+    font-size: 40px;
+    margin: 14px 0px 0px 0px;
+    text-align: left;
+}
+
+.configuration h3 {
+    text-align: left;
+}
+
+div.configInfo {
+    margin-top: 28px;
+    margin-bottom: 30px;
+}
+
+.configInfo div {
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.configInfo input {
+    width: 100%;
+}
+
+.configuration label {
+    color: var(--primary-color);
+    position: absolute;
+    top: -16px;
+    left: 12px;
+    padding: 0 6px;
+    background: #ffffff;
+    z-index: 10;
+}
+
+.configuration .configInfo input, .configuration .configInfo select {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    background: transparent;
+    padding: 8px 14px;
+    border: 1px solid var(--soft-primary-color);
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.configuration .colors {
+    margin-top: 0px;
     display: flex;
     flex-direction: row;
 }
 
-.configuration input {
+.configuration .colors input {
     padding: 0px;
     margin: 0px;
     border: 0px;
@@ -15,7 +61,7 @@
     cursor: pointer;
 }
 
-.configuration form div {
+.configuration .colors form div {
     display: flex;
     border: 1px solid var(--soft-primary-color);
     padding: 8px 16px;
@@ -53,7 +99,7 @@
     color: var(--background-color);
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     background: var(--primary-color);
     padding: 6px 14px;
     margin-left: 14px;
