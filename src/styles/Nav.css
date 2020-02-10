@@ -44,8 +44,18 @@
 }
 
 .navText {
+    max-width: 190px;
     margin-top: 60px;
     text-align: left;
+    padding: 25px;
+    margin-right: 40px;
+    border: 1px solid var(--soft-primary-color);
+    border-radius: 16px;
+    color: var(--primary-color);
+}
+
+.navText h3 {
+    margin-top: 0px;
 }
 
 .navText a {

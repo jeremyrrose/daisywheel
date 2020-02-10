@@ -44,7 +44,7 @@ const Nav = (props) => {
             <div className="navText">
                 <h3>Daisywheel CMS<br/>-- v. 0.7</h3>
                 <p>: : <a href="http://github.com/jeremyrrose/daisywheel" target="_blank">GitHub repository</a></p>
-                <p>: : <a href="http://jeremy-rose.com/moda" target="_blank">Live reader view</a> (Moda template)</p>
+                <p>: : <a href="http://jeremy-rose.com/moda" target="_blank">Live reader view</a><br/> &nbsp; &nbsp; (Moda template)</p>
                 <p>: : <a href="http://jeremy-rose.com" target="_blank">jeremy-rose.com</a></p>
             </div>
         </div>
