@@ -38,6 +38,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex-shrink: 0;
 }
 
 .sectionLeft div {
@@ -48,6 +49,7 @@
 
 .sectionEdit h2 {
     font-size: 36px;
+    text-align: left;
     margin: 0 0 12px 0;
     color: var(--primary-color);
 }
@@ -73,6 +75,7 @@
 }
 
 .sectionRight select, .sectionRight input {
+    width: 100%;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;

@@ -62,12 +62,12 @@ class EditSection extends React.Component {
                         <h2><span className="thin">Section: </span>{this.state.section ? this.state.section.title : null }</h2>
                         <div>
                             View articles: 
-                            <button className={this.state.all && `on`} onClick={() => this.allToggle(true)}>All</button>
-                            <button className={this.state.all || `on`} onClick={() => this.allToggle(false)}>Featured Only</button></div>
+                            <button className={(this.state.all && `on`).toString()} onClick={() => this.allToggle(true)}>All</button>
+                            <button className={(this.state.all || `on`).toString()} onClick={() => this.allToggle(false)}>Featured Only</button></div>
                     </div>
                     <div className="sectionRight">
                         <div>
-                            <label for="section">Choose a section:</label>
+                            <label htmlFor="section">Choose another section:</label>
                             <select name="section" value={this.props.match.params.id} onChange={(e) => {
                                 this.props.history.push(`/edit/sections/${e.target.value}`);
                                 this.setSection(e.target.value);

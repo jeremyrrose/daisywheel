@@ -51,11 +51,13 @@ class EditSections extends React.Component {
                     <input name="sectionShortTitle" type="text" onChange={this.changeHandler} value={this.state.sectionShortTitle} />
                 </div>
                 <button className="addSection" type="submit">Add Section</button>
+                <button className="cancelSection" type="button" onClick={() => this.setState({newSection: false, sectionTitle: '', sectionShortTitle: ''})}>Cancel</button>
             </form> :
             <button className="addSection" onClick={() => this.setState({newSection: true})}>+ Add a section</button>
 
         return (
             <div className="editSections">
+                <h2>Choose a section to view articles:</h2>
                 {sectionList}
                 {newSection}
             </div>

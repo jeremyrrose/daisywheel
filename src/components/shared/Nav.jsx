@@ -4,6 +4,7 @@ import navArrow from '../../images/navArrow.svg';
 import '../../styles/Nav.css'
 
 const Nav = (props) => {
+  
     return (
         <div className="leftNav">
             <NavLink

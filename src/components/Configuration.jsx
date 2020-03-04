@@ -81,11 +81,11 @@ class Configuration extends React.Component {
                 <div className="configInfo">
                     <form className="configInfo" onSubmit={ (e) => this.modalToggler(e, this.changeInfo, "overwrite the publication title") }>
                         <div>
-                            <label for="title">Publication title</label>
+                            <label htmlFor="title">Publication title</label>
                             <input name="title" type="text" value={this.state.title} onChange={(e) => this.changeHandler(e)} />
                         </div>
                         <div>
-                            <label for="description">Description</label>
+                            <label htmlFor="description">Description</label>
                             <input name="description" type="text" value={this.state.description} onChange={(e) => this.changeHandler(e)} />
                         </div>
                         <button type="submit" className={ this.state.title != this.props.magazine.title || this.state.description != this.props.magazine.description ? 'active' : 'dim' }>Save publication info</button>

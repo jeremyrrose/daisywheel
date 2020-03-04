@@ -80,7 +80,7 @@ const ArticleForm = ({
             <div className="row1">
                 {header}
                 <div>
-                    <label for="section_id">Section</label>
+                    <label htmlFor="section_id">Section</label>
                     <select name="section_id" value={section_id || "0"} onChange={(e) => onChange(e)} >
                         {sectionSelect}
                         <option value="0">:: Static Page</option>
@@ -88,16 +88,16 @@ const ArticleForm = ({
                 </div>
             </div>
             <div className="wideInput">
-                <label for="title">Article title</label>
+                <label htmlFor="title">Article title</label>
                 <input name="title" type="text" value={title} onChange={(e) => onChange(e)} />
             </div>
             <div className="wideInput">
-                <label for="dek">Dek</label>
+                <label htmlFor="dek">Dek</label>
                 <input name="dek" type="text" value={dek} onChange={(e) => onChange(e)} />
             </div>
             <div className="row4">
                 <div>
-                    <label for="author_id">Author</label>
+                    <label htmlFor="author_id">Author</label>
                     <select name="author_id" value={author_id} onChange={(e) => onChange(e)}>
                         <option value="0">:: Staff</option>
                         {authorSelect}
@@ -112,11 +112,11 @@ const ArticleForm = ({
                 </div>
                 <div className="heroColumn">
                     <div>
-                        <label for="caption">Photo caption</label>
+                        <label htmlFor="caption">Photo caption</label>
                         <input name="caption" type="text" value={caption} onChange={(e) => onChange(e)} />
                     </div>
                     <div>
-                        <label for="credit">Photo credit</label>
+                        <label htmlFor="credit">Photo credit</label>
                         <input name="credit" type="text" value={credit} onChange={(e) => onChange(e)} />
                     </div>
                 </div>
@@ -129,7 +129,7 @@ const ArticleForm = ({
                     <button type="button" name="link" onClick={(e) => linker(e)}><span>link</span></button>
                 </div>
                 <div>
-                <label for="content">Article body</label>
+                <label htmlFor="content">Article body</label>
                 <div id="content" contentEditable="true" onClick={() => buttonState()} onBlur={() => wysiwygHandler('content')} dangerouslySetInnerHTML={{__html: content}} />
                 </div>
             </div>

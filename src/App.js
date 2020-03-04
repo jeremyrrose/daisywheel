@@ -25,6 +25,7 @@ class App extends React.Component {
 
   componentDidUpdate = () => {
     this.addColors();
+    this.topSpacer();
   }
 
   getInfo = async () => {
@@ -35,6 +36,17 @@ class App extends React.Component {
     })
     this.addColors();
   }
+
+  topSpacer = () => {
+    console.log('spacin');
+    const container = document.querySelector('.mainContainer');
+    const menu = document.querySelector('.leftNav');
+    const header = document.querySelector('header');
+    if (container && window.matchMedia('(max-width: 900px)').matches) {
+        container.style.marginTop = `${header.offsetHeight}px`;
+        menu.style.top = `${header.offsetHeight}px`;
+    }
+}
 
   forceIt = (stateObj) => {
     if (stateObj) {

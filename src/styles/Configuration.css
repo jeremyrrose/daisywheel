@@ -1,3 +1,8 @@
+.configuration {
+    display: block;
+    width: 100%;
+}
+
 .configuration h2 {
     color: var(--primary-color);
     font-size: 40px;
@@ -12,6 +17,7 @@
 div.configInfo {
     margin-top: 28px;
     margin-bottom: 30px;
+    text-align: left;
 }
 
 .configInfo div {
@@ -21,7 +27,7 @@ div.configInfo {
 }
 
 .configInfo input {
-    width: 100%;
+    width: 94%;
 }
 
 .configInfo button.dim {
